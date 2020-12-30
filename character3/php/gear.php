@@ -1,5 +1,6 @@
 <?php
 
+/*Wizard */
 
 function getGear($input)
 {
@@ -37,6 +38,28 @@ function getGear($input)
         $arr= array($a00, $a01, $a02, $a03, $a04, $a05, $a06, $a07, $a08, $a09, $a10, $a11, $a12, $a13, $a14, $a15, $a16, $a17, $a18, $a19, $a20, $a21, $a22, $a23, $a24, $a25, $a26, $a27);
         
         return $arr[$input];
+}
+
+
+
+function getRandomGear()
+{
+        $gearArray = array(0, 7, 17, 22, 23);
+
+        $numberOfGear = rand(5, 15);
+
+        $addToArray = array(1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21);
+
+        shuffle($addToArray);
+
+        for($j = 0; $j <= $numberOfGear; ++$j)
+        {
+                $gear = $addToArray[$j];
+                array_push($gearArray, $gear);
+        }
+
+        return $gearArray;
+
 }
 
 

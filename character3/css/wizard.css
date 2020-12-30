@@ -443,25 +443,25 @@ body{
 
 #languages{
     position:absolute;
-    top: 430px;
-    left: 360px;
-    font-size: 0.8em;
+    top: 870px;
+    left: 85px;
+    font-size: 0.9em;
     width: 300px;
 }
 
 
 #melee{
     position:absolute;
-    top: 503px;
-    left: 573px;
+    top: 467px;
+    left: 555px;
 	font-size: 1em;
 }
 
 
 #range{
     position:absolute;
-    top: 546px;
-    left: 573px;
+    top: 510px;
+    left: 555px;
 	font-size: 1em;
 }
 
@@ -469,16 +469,16 @@ body{
 
 #meleeDamage{
     position:absolute;
-    top: 503px;
-    left: 620px;
+    top: 467px;
+    left: 602px;
 	font-size: 1em;
 }
 
 
 #rangeDamage{
     position:absolute;
-    top: 546px;
-    left: 620px;
+    top: 510px;
+    left: 602px;
 	font-size: 1em;
 }
 
@@ -510,15 +510,15 @@ body{
 
 #maxSpellLevel{
     position:absolute;
-    top: 741px;
-    left: 830px;
+    top: 624px;
+    left: 590px;
     font-size: 1em;
 }
 
 
 #knownSpells{
     position:absolute;
-    top: 770px;
-    left: 830px;
+    top: 654px;
+    left: 590px;
     font-size: 1em;
 }

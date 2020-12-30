@@ -1,5 +1,7 @@
 <?php
 
+/*Wizard*/
+
 
     function getWeapon($input)
     {
@@ -16,6 +18,30 @@
         return $array1[$input];
         
     }
+
+    
+    
+function getRandomWeapons()
+{
+   
+    $weaponsArray = array(0, 1, 2, 3, 4, 5);
+
+    //shuffle $weaponsArray
+    shuffle($weaponsArray); 
+
+    $numberOfWeapons = rand (3, 5);
+
+    $weaponsHas = array();
+
+    for($j = 0; $j < $numberOfWeapons; ++$j)
+    {
+        $weapon = $weaponsArray[$j];
+        array_push($weaponsHas, $weapon);
+    }
+
+    return $weaponsHas;
+}
+
 
 
 

@@ -41,11 +41,18 @@
     include 'php/clothing.php';
     include 'php/abilityScoreGen.php';
     include 'php/randomName.php';
+    include 'php/xp.php';
     
 
         if(isset($_POST["theCharacterName"]))
         {
             $characterName = $_POST["theCharacterName"];
+    
+        }
+
+        if(isset($_POST["thePlayerName"]))
+        {
+            $playerName = $_POST["thePlayerName"];
     
         }
         
@@ -70,6 +77,9 @@
             $level = $_POST["theLevel"];
         
         } 
+        
+
+        $xpNextLevel = getXPNextLevel ($level);
         
         if(isset($_POST["theAbilityScore"]))
         {
@@ -129,16 +139,26 @@
         $weaponArray = array();
         $weaponNames = array();
         $weaponDamage = array();
-    
-    
-        if(isset($_POST["theWeapons"]))
+
+        //For Random Select weapon
+        if(isset($_POST['thecheckBoxRandomWeaponsV3']) && $_POST['thecheckBoxRandomWeaponsV3'] == 1) 
         {
+            $weaponArray = getRandomWeapons();
+        
+       }
+        else
+       {
+        if(isset($_POST["theWeapons"]))
+       {
             foreach($_POST["theWeapons"] as $weapon)
             {
                 array_push($weaponArray, $weapon);
-            }
+           }
         }
-    
+
+    }
+        
+
     foreach($weaponArray as $select)
     {
         array_push($weaponNames, getWeapon($select)[0]);
@@ -151,15 +171,60 @@
         
         $gearArray = array();
         $gearNames = array();
+
+        /*
+        $a00 = array("Dagger", "1d4/1d10");
+        $a01 = array("Longbow", "1d6");
+        $a02 = array("Longsword", "1d8");
+        $a03 = array("Shortbow", "1d6");
+        $a04 = array("Short sword", "1d6");
+        $a05 = array("Staff", "1d4");*/
     
-    
-        if(isset($_POST["theGear"]))
+            //For Random Select gear
+
+    //For Random Select gear
+    if(isset($_POST['theCheckBoxRandomGear']) && $_POST['theCheckBoxRandomGear'] == 1) 
+    {
+        $gearArray = getRandomGear();
+
+        $weaponCount = count($weaponArray);
+
+        $hasLongbow = false;
+        $hasShortbow = false;
+
+        for($i = 0; $i < $weaponCount; ++$i)
         {
-            foreach($_POST["theGear"] as $weapon)
+            if($weaponArray[$i] == "1" && $hasShortbow == false)
             {
-                array_push($gearArray, $weapon);
+                array_push($gearArray, 24);
+                array_push($gearArray, 25);
+                
+                $hasLongbow = true;
             }
+
+            if($weaponArray[$i] == "3" && $hasLongbow == false)
+            {
+                array_push($gearArray, 24);
+
+                $hasShortbow = true;
+            }
+
         }
+
+    }
+    else
+    {
+        //For Manually select gear
+        if(isset($_POST["theGear"]))
+            {
+                foreach($_POST["theGear"] as $gear)
+                {
+                    array_push($gearArray, $gear);
+                }
+            }
+
+    }
+
     
         foreach($gearArray as $select)
         {
@@ -227,6 +292,13 @@
                 echo $level;
            ?>
         </span>
+        
+       <span id="xpNextLevel">
+           <?php
+                echo $xpNextLevel;
+           ?>
+        </span>
+
        
 
        
@@ -235,6 +307,15 @@
                 echo $characterName;
            ?>
         </span>
+
+        
+        
+       <span id="playerName">
+           <?php
+                echo $playerName;
+           ?>
+        </span>
+       
        
               
          <span id="alignment">
