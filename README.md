@@ -5,6 +5,14 @@ Designed with PHP and jQuery, the Dungeon Crawl Classics Wizard Character Genera
 
 
 
+
+Update 1.02: 2020-12-30
+
+Updates to dccWizard.php and wizard.css.  Two new files added: familiar.php and patron.php.  A new character sheet (wizard.png) added.
+
+
+
+
 Update 1.01: 2020-12-29
 
 Updates to dccWizard.php, wizard.css, gear.php and weapons.php. New character sheet (wizard.png) and new file (xp.php) added.
