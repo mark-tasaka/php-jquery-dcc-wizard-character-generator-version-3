@@ -5,6 +5,10 @@ Designed with PHP and jQuery, the Dungeon Crawl Classics Wizard Character Genera
 
 
 
+Update 1.03: 2020-12-30
+
+Updated dccWizard.php.
+
 
 Update 1.02: 2020-12-30
 
