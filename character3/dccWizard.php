@@ -90,16 +90,7 @@
         
         } 
         
-        if(isset($_POST["thePatron"]))
-        {
-            $patron = $_POST["thePatron"];
 
-            if($patron == "")
-            {
-                $patron = " ";
-            }
-    
-        }
 
         $patronArray = array();
 
