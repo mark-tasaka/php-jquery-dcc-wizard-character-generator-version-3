@@ -42,6 +42,9 @@
     include 'php/abilityScoreGen.php';
     include 'php/randomName.php';
     include 'php/xp.php';
+    include 'php/patron.php';
+    include 'php/familiar.php';
+
     
 
         if(isset($_POST["theCharacterName"]))
@@ -97,18 +100,59 @@
             }
     
         }
-        
-        if(isset($_POST["theFamilar"]))
-        {
-            $familar = $_POST["theFamilar"];
 
-            if($familar == "")
-            {
-                $familar = " ";
-            }
-    
+        $patronArray = array();
+
+        //For Patron
+        if(isset($_POST['thePatron']) && $_POST['thePatron'] == 1) 
+        {
+            $patronNumber = rand(0, 7);
+            $patronArray = getPatron($patronNumber);   
+
+            $patronName = $patronArray[0];
+            $patronDescription = $patronArray[1];
         }
-    
+        else
+        {
+            $patronName = "";
+            $patronDescription = "";
+
+        }
+
+
+        $familiarForm = array();
+        
+        //Familiar
+        if(isset($_POST['theFamiliar']) && $_POST['theFamiliar'] == 1) 
+        {
+            $familiarForm = getFamiliar($alignment);
+
+            $familiarFormAnimal = $familiarForm[0];
+            $familiarFormDescription = $familiarForm[1];
+
+            $familiarTypeName = getFamiliarType($alignment);
+            $familiarType = 'Type: ' . $familiarTypeName;
+
+            $familiarHitPoints = getFamiliarHitPoints($familiarTypeName);
+            $familiarHitDice = getFamiliarHitDice($familiarTypeName); 
+
+            $familiarHp = 'HP: ' . $familiarHitPoints . ' ' . $familiarHitDice;
+
+            $familiarPersonalityShort = familiarPersonality();
+            $familiarPersonality = 'Personality: ' . $familiarPersonalityShort;
+
+        }
+        else
+        {
+            $familiarFormAnimal = "";
+            $familiarFormDescription = "";
+            $familiarType = "";
+            $familiarHp = "";
+            $familiarPersonality = "";
+
+        }
+                
+
     $dieType = generationMethod ($abilityScoreGen)[0];
     $numberDie = generationMethod ($abilityScoreGen)[1];
     $dieRemoved = generationMethod ($abilityScoreGen)[2];
@@ -148,15 +192,14 @@
        }
         else
        {
-        if(isset($_POST["theWeapons"]))
-       {
-            foreach($_POST["theWeapons"] as $weapon)
+            if(isset($_POST["theWeapons"]))
             {
-                array_push($weaponArray, $weapon);
-           }
-        }
-
-    }
+                    foreach($_POST["theWeapons"] as $weapon)
+                    {
+                        array_push($weaponArray, $weapon);
+                    }
+            }
+       }
         
 
     foreach($weaponArray as $select)
@@ -172,17 +215,6 @@
         $gearArray = array();
         $gearNames = array();
 
-        /*
-        $a00 = array("Dagger", "1d4/1d10");
-        $a01 = array("Longbow", "1d6");
-        $a02 = array("Longsword", "1d8");
-        $a03 = array("Shortbow", "1d6");
-        $a04 = array("Short sword", "1d6");
-        $a05 = array("Staff", "1d4");*/
-    
-            //For Random Select gear
-
-    //For Random Select gear
     if(isset($_POST['theCheckBoxRandomGear']) && $_POST['theCheckBoxRandomGear'] == 1) 
     {
         $gearArray = getRandomGear();
@@ -368,16 +400,23 @@
             ?>
         </span>
         
-        <span id="patron">
+
+        <span id="patronName">
             <?php
-                echo $patron;
+                echo $patronName;
+            ?>
+        </span>
+
+        <span id="patronDescription">
+            <?php
+                echo  $patronDescription;
             ?>
         </span>
         
         
-        <span id="familar">
+        <span id="familiarForm">
             <?php
-                echo $familar;
+                echo  $familiarFormAnimal . '   ' . $familiarFormDescription . '<br/><br/>' . $familiarType . '<br/><br/>' . $familiarHp . '<br/><br/>' . $familiarPersonality;
             ?>
         </span>
 

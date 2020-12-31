@@ -135,21 +135,9 @@ body{
 	font-size: 0.5em;
 }
 
-#gearWeight{
-    position:absolute;
-    top: 832px;
-    left: 485px;
-	font-size: 0.5em;
-}
 
 
 
-#weaponNotes{
-    position:absolute;
-    top: 1143px;
-    left: 610px;
-	font-size: 0.4em;
-}
 
 
 #gearList{
@@ -159,6 +147,33 @@ body{
     font-size: 0.6em;
     width: 220px;
 }
+
+
+#patronName{
+    position:absolute;
+    top: 740px;
+    left: 700px;
+    font-size: 1em;
+}
+
+
+#patronDescription{
+    position:absolute;
+    top: 768px;
+    left: 700px;
+    font-size: 0.7em;
+    width: 220px;
+}
+
+
+#familiarForm{
+    position:absolute;
+    top: 872px;
+    left: 700px;
+    font-size: 0.7em;
+    width: 220px;
+}
+
 
 #abilityScoreGeneration{
     position:absolute;
