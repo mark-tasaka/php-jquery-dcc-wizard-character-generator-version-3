@@ -3,6 +3,22 @@ Designed with PHP and jQuery, the Dungeon Crawl Classics Wizard Character Genera
 
 ----------------------
 
+Live versions of the Dungeon Crawl Classics (DCC) WizardCharacter Generator Version 3 are found at:
+
+Dwarves, Warriors and Mighty Deeds: A Dungeon Crawl Classics Fan Site:
+
+https://www.oldschooladventures.org/dcc/wizard/
+
+Fantastic Adventures and the Disgruntled Gong Farmer: A DCC Adventure Module:
+
+https://www.tasaka-games.com/dcc/more/classes/wizard/
+
+---------------
+
+Update 1.04: 2021-01-10
+
+DCC Wizard Generator Launch Page added.
+
 
 
 Update 1.03: 2020-12-30
